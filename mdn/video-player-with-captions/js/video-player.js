@@ -75,7 +75,7 @@
 
 		// Fullscreen
 		var handleFullscreen = function() {
-			// If fullscreen mode is active...	
+			// If fullscreen mode is active...
 			if (isFullScreen()) {
 					// ...exit fullscreen mode
 					// (Note: this can only be called on document)
@@ -91,7 +91,7 @@
 					if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
 					else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
 					else if (videoContainer.webkitRequestFullScreen) {
-						// Safari 5.1 only allows proper fullscreen on the video element. This also works fine on other WebKit browsers as the following CSS (set in styles.css) hides the default controls that appear again, and 
+						// Safari 5.1 only allows proper fullscreen on the video element. This also works fine on other WebKit browsers as the following CSS (set in styles.css) hides the default controls that appear again, and
 						// ensures that our custom controls are visible:
 						// figure[data-fullscreen=true] video::-webkit-media-controls { display:none !important; }
 						// figure[data-fullscreen=true] .controls { z-index:2147483647; }
@@ -137,11 +137,11 @@
 				checkVolume();
 			}, false);
 
-			// Add events for all buttons			
+			// Add events for all buttons
 			playpause.addEventListener('click', function(e) {
 				if (video.paused || video.ended) video.play();
 				else video.pause();
-			});	
+			});
 
 			// Turn off all subtitles
 			for (var i = 0; i < video.textTracks.length; i++) {
@@ -177,6 +177,8 @@
 						}
 					}
 					subtitlesMenu.style.display = 'none';
+					// remember the last language
+					subtitles.setAttribute('lastLang', id);
 				});
 				subtitleMenuButtons.push(button);
 				return listItem;

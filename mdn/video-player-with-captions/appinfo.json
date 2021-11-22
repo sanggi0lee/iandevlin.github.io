@@ -1,0 +1,9 @@
+{
+	"id": "com.sample.caption",
+	"version": "1.0.0",
+	"type": "web",
+	"main": "index.html",
+	"title": "Sample App for webOS TV Closed Caption Setting",
+	"icon": "icon.png",
+	"largeIcon": "largeIcon.png"
+}
