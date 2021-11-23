@@ -1,6 +1,6 @@
 (function() {
 	var subscriptionHandle;
-	var subtitles;
+	var videoContainer;
 
 	function monitorSettingsChange(category, keys, handleFunc) {
 		return webOS.service.request("luna://com.webos.settingsservice", {
@@ -38,8 +38,8 @@
 				cancelable: true
 			});
 			var langMenu;
-			if (re.settings.captionEnable === 'on') {
-				langMenu = document.getElementById(subtitles.getAttribute('lastLang'));
+			if (res.settings.captionEnable === 'on') {
+				langMenu = document.getElementById(videoContainer.getAttribute('lastLang'));
 			} else {
 				langMenu = document.getElementById('subtitles-off');
 			}
@@ -51,7 +51,7 @@
 
 	window.addEventListener('load', function() {
 		subscriptionHandle = monitorSettingsChange('caption', ['captionEnable'], handleSettingsChange);
-		subtitles = document.getElementById('subtitles');
+		videoContainer = document.getElementById('videoContainer');
 	});
 
 	window.addEventListener('unload', function() {

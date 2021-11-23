@@ -178,7 +178,9 @@
 					}
 					subtitlesMenu.style.display = 'none';
 					// remember the last language
-					subtitles.setAttribute('lastLang', id);
+					if (lang) {
+						videoContainer.setAttribute('lastLang', id);
+					}
 				});
 				subtitleMenuButtons.push(button);
 				return listItem;
